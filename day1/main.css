@@ -1,0 +1,47 @@
+
+body {
+    margin:0;
+    padding: 0;
+    background: url(audience.webp) ;
+    background-position: center;
+
+}
+.keys {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.key {
+    display:inline-block;
+    width:100px;
+    height: 100px;
+    margin:20px;
+    border: 3px solid black;
+    transition: all 0.07s;
+    text-align: center;
+    background-color: rgba(245, 245, 220, 0.644);
+    
+}
+
+.playing {
+    transform :scale(1.1);
+    border-color:yellowgreen;
+    box-shadow: 0 0 5px black;
+}
+
+.sound{
+    text-align: center;
+    font-weight: bold;
+display:block;
+margin-top:20px;
+}
+
+kbd{
+    display:block;
+
+    text-align: center;
+    font-weight: bold;
+    font-size:30px;
+    margin-top:5px;}
