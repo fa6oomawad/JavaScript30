@@ -1,0 +1,18 @@
+.controls{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+:root {
+    --base:#ffc600;
+    --spacing:10px;
+    --blur:10px;
+}
+
+img {
+    padding: var(--spacing);
+    background:var(--base);
+    filter:blur(var(--blur));
+}
