@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Day5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <div class='panels'>
+<div class='panel panel1'>
+    <p>live</p>
+    <p>love</p>
+    <p>pray</p>
+
+</div>
+<div class='panel panel2'>
+        <p>Hey</p>
+        <p>lets</p>
+        <p>Dance</p>
+    
+    </div>
+    <div class='panel panel3'>
+            <p>Give</p>
+            <p>Take</p>
+            <p>Receive</p>
+        
+        </div>
+        <div class='panel panel4'>
+                <p>Experience</p>
+                <p>It</p>
+                <p>Today</p>
+            
+            </div>
+            <div class='panel panel5'>
+                    <p>Give</p>
+                    <p>All</p>
+                    <p>In</p>
+                
+                </div>
+
+
+    </div>
+
+    <script>
+        const panels=document.querySelectorAll('.panel');
+
+function toggleOpen (){
+    this.classList.toggle('open');
+}
+function togglective (e){
+console.log(e.propertyName);
+if (e.propertyName.includes('flex')){
+    this.classList.toggle('open-active');
+}
+
+}
+panels.forEach(panel=>panel.addEventListener('click',toggleOpen))
+panels.forEach(panel=>panel.addEventListener('transitionend',togglective))
+
+
+        </script>
+</body>
+</html>
