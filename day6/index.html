@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <input type='text' class='search'>
+    <ul class="answer"><li></li></ul>
+    <script>
+        const endpoint =  
+  'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+const cities=[];
+//fetch is a method that used with apis and it return a promise so you need to use then to first convert promise to json and then again to take this data from json.
+
+fetch(endpoint).then(blob=>blob.json())
+.then(data=>cities.push(...data));
+
+function findMatches(wordToMatch,cities){
+    return cities.filter(place=>{
+        //because we cant just pass the var(wordtomatch) inside match , we use regular exp instead.
+        const regex=new RegExp(wordToMatch,'gi');
+        return place.city.match(regex) || place.state.match(regex);
+    })
+}
+
+function displayMatches(){
+const matcharray= findMatches(this.value,cities);
+const html=matcharray.map(place=>{
+    return ` <li>
+    <span>${place.city},${place.state}</span>
+    <span>${place.population}</span>
+    </li>`;
+}).join('');
+answer.innerHTML=html;
+}
+
+const input=document.querySelector('.search');
+const answer=document.querySelector('.answer');
+
+input.addEventListener('change',displayMatches);
+input.addEventListener('keyup',displayMatches);
+
+
+
+        </script>
+</body>
+</html>
