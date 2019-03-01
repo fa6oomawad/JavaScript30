@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>day7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    
+
+<script>
+    const ppl=[
+        {name:'fatima', year:1995},
+        {name:'wes', year:1986},
+        {name:'kate', year:1970},
+        {name:'lux', year:2015},
+
+    ];
+
+    const comments=[
+        {text:'love this', id:523423},
+        {text:'super good', id:823423},
+        {text:'you r the best', id:2039842},
+        {text:'indomie is my fav food', id:123523},
+        {text:'nice nice nice', id:542328},
+
+    ];
+//(some) return boolen wither some met the condition or not !
+    const isAdult=ppl.some(person=>{
+        const year=(new Date()).getFullYear();       
+        return year-person.year >= 19
+        });
+    console.log(isAdult);
+
+//(every)return boolen wither every element in array met the condition or not !
+
+    const allAdults=ppl.every(person=> ((new Date()).getFullYear()) - person.year >= 19);
+    console.log(allAdults);
+
+//(find) will return the first element that met the condition.
+const comment= comments.find(comment=>comment.id===823423);
+console.log(comment);
+//index of the element that have an id =823...
+const index= comments.findIndex(comment=>comment.id===823423);
+console.log(index);
+
+//comment.splice(index,1);
+
+//another way to delete instead f using splice is to use slice and skip the ele we want
+const newcomments=[
+...comments.slice(0,index),
+...comments.slice(index+1)
+
+];
+console.table(newcomments);
+
+
+    </script>
+
+
+
+</body>
+</html>
