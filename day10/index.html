@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <div class='inbox'>
+        <div class='item'>
+<input type='checkbox'>
+<span>this is inbox layout</span>
+
+        </div>
+        <div class='item'>
+        <input type='checkbox'>
+            <span>this is a message</span>
+            
+                    </div>
+                    <div class='item'>
+                    <input type='checkbox'>
+                    <span>another message</span>
+                    
+                            </div>
+                            <div class='item'>
+                            <input type='checkbox'>
+                            <span>more messages</span>
+                            
+                                    </div>
+                                    <div class='item'>
+                                        <input type='checkbox'>
+                                        <span>alot of messages</span>
+                                        
+                                                </div>
+    </div>
+
+    <script>
+    const checkboxes=document.querySelectorAll('.inbox input[type="checkbox"]');
+    let lastcheck;
+    function handlecheck(e){
+        let inBetween=false;
+        console.log(e.shiftKey);
+//if this is the second check button !
+    if (e.shiftKey && this.checked){
+//loop over every item , if its not between the 2 checks , skip , if(between) make this item checked
+        checkboxes.forEach(c=>{
+    if (c===this || c === lastcheck){
+        inBetween=!inBetween;
+        console.log('start to check the in between')
+    }
+    if (inBetween){
+        c.checked=true;
+    }
+});
+    }
+    lastcheck=this;
+
+    }
+    checkboxes.forEach(c=> c.addEventListener('click',handlecheck))
+    </script>
+</body>
+</html>
