@@ -1,0 +1,11 @@
+.progress{
+    position: relative;
+    height: 20px;
+    background-color: palevioletred;
+    display:flex;
+}
+.progress-filled{
+    flex:0;
+    flex-basis: 0%;
+    background-color: blue;
+}
