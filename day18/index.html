@@ -188,9 +188,10 @@ const seconds=timeNodes
 .map(timecode=>{
     //split the string of time to sec and min and save them in diff vars 
     const [min,sec]=timecode.split(':').map(parseFloat);
-    return (min * 60) +sec;
+    //return time of video in seconds by converting min into sec and add it to the other sec 
+    return (min * 60) + sec;
 })
-//seconds of all vids together 
+//seconds of all vids together in one number by using reduce 
 .reduce((total,seconds)=>total+seconds);
 
 let secndsLeft=seconds;
