@@ -29,7 +29,7 @@ let pixels=ctx.getImageData(0,0,width,height);
 pixels=greenscreen(pixels);
 ctx.globalAlpha=0.6;
 ctx.putImageData(pixels,0,0);
-    },16)
+    },16);
 }
 
 function takePhoto (){

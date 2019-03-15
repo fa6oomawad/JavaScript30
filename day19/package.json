@@ -7,7 +7,7 @@
     "start": "browser-sync start --server --files \"*.css, *.html, *.js\""
   },
   "author": "",
-  "license": "ISC",
+  "license":  "ISC",
   "devDependencies": {
     "browser-sync": "^2.12.5 <2.23.2"
   }
