@@ -56,7 +56,7 @@ function setVoice(){
 }
 function toggle(){
     speechSynthesis.cancel();
-    speechSynthesis.speak();
+    speechSynthesis.speak(msg);
 }
 speechSynthesis.addEventListener('voiceschanged',populateVoice);
 voicesDropdown.addEventListener('change',setVoice);
