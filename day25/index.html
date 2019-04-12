@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+</head>
+<body class="bod">
+
+  <div class="one">
+    <div class="two">
+      <div class="three">
+      </div>
+    </div>
+  </div>
+
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after { 
+    box-sizing: inherit; 
+  }
+  div {
+    width: 100%;
+    padding: 100px;
+  }
+  .one {
+    background: thistle;
+  }
+  .two {
+    background: mistyrose;
+  }
+  .three {
+    background: coral;
+  }
+</style>
+
+<button></button>
+<script>
+  const divs=document.querySelectorAll('div');
+   function logText(e){
+     //bubling , when you click something nested inside something it will trigger clicks on things nested outside
+     console.log(this.classList.value);
+     //e.stopPropagation();//stop bubbling
+
+   }
+   //capture option allow you to fire the event from going from top to down , without it it will do the oppsite
+   divs.forEach(div=>div.addEventListener('click',logText,{
+     capture:false,
+     //once for unbinding , will make event listen only one time and then remove the event listener
+    once:true}))
+</script>
+</body>
+</html>
