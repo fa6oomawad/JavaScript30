@@ -203,6 +203,46 @@
 </style>
 
 <script>
+    const triggers=document.querySelectorAll('.cool > li');
+    const background = document.querySelector('.dropdownBackground');
+    const nav=document.querySelector('.top');
+
+    //listen to hover in and hover out of mouse to trigger the background and nav to move and display sepcific li data
+
+    function handleEnter (){
+console.log('enter')
+this.classList.add('trigger-enter');
+setTimeout(() => this.classList.contains('trigger-enter')&&this.classList.add('trigger-enter-active'),150)
+background.classList.add('open');
+
+const dropdown=this.querySelector('.dropdown');
+
+const dropdowncoords= dropdown.getBoundingClientRect();
+console.log(dropdowncoords)
+const navcoords=nav.getBoundingClientRect();
+//play with these cords to change the background size and place 
+const coords={
+    height:dropdowncoords.height,
+    width:dropdowncoords.width,
+    top:dropdowncoords.top - navcoords.top,
+    left:dropdowncoords.left - navcoords.left
+}
+
+background.style.setProperty('width',`${coords.width}px`);
+background.style.setProperty('height',`${coords.height}px`);
+background.style.setProperty('transform',`translate(${coords.left}px,${coords.top}px)`)
+
+    }
+    function handleLeave(){
+console.log('leave');
+this.classList.remove('trigger-enter','trigger-enter-active');
+background.classList.remove('open');
+
+    }
+
+    triggers.forEach(tri=>tri.addEventListener('mouseenter',handleEnter));
+    triggers.forEach(tri=>tri.addEventListener('mouseleave',handleLeave))
+
 </script>
 
 </body>
