@@ -43,6 +43,9 @@
     slider.addEventListener('mousedown',(e)=>{
 isDown=true;
 slider.classList.add('active');
+//to see where the cursor is !! , we substract offsetleft so it can give us the location only inside the square of the slider 
+startX=e.pageX - slider.offsetLeft;
+scrollLeft=slider.scrollLeft;
 
 
     });
@@ -58,9 +61,16 @@ slider.classList.add('active');
         slider.classList.remove('active');
 
     });
-    slider.addEventListener('mousemove',()=>{
+    slider.addEventListener('mousemove',(e)=>{
         if(!isDown) return; //stop the function from running
-console.log(isDown)
+e.preventDefault();
+//calculate whe the mouse is every time the mouse move 
+const x =e.pageX - slider.offsetLeft;
+//tto know how far we are from the start of mouse down
+const walk=x-startX;
+//to actually move the slides 
+slider.scrollLeft= scrollLeft-walk;
+
     })
 </script>
 
