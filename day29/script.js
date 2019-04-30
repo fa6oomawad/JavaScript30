@@ -11,12 +11,13 @@ function timer(seconds){
     displayTimeLeft(seconds);
     displayEndTime(then);
     countdown=setInterval(()=>{
-const secondsLeft =Math.round( then - Date.now()) / 1000;
+const secondsLeft =Math.round( (then - Date.now()) / 1000);
+console.log(secondsLeft);
 if(secondsLeft < 0){
    clearInterval(countdown) ;
 return ;
 }
-displayTimeLeft(seconds);
+displayTimeLeft(secondsLeft);
 
     },1000)
 }
@@ -26,6 +27,7 @@ function displayTimeLeft(seconds){
     const reminderSeconds= seconds % 60 ;
     const display = `${minutes}:${reminderSeconds < 10 ? '0':''}${reminderSeconds}`;
     timerDisplay.textContent=display;
+    console.log(display)
 
 
 }
